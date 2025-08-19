@@ -1,12 +1,6 @@
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.csproj.AssemblyReference.cache
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.AssemblyInfoInputs.cache
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.AssemblyInfo.cs
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.csproj.CoreCompileInputs.cache
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
-C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\appsettings.Development.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\appsettings.json
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\SchoolManagementSystem.API.staticwebassets.runtime.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\SchoolManagementSystem.API.exe
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\SchoolManagementSystem.API.deps.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\SchoolManagementSystem.API.runtimeconfig.json
@@ -19,6 +13,7 @@ C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -34,6 +29,7 @@ C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
@@ -142,6 +138,14 @@ C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.csproj.AssemblyReference.cache
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.AssemblyInfoInputs.cache
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.AssemblyInfo.cs
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.csproj.CoreCompileInputs.cache
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.MvcApplicationPartsAssemblyInfo.cs
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.MvcApplicationPartsAssemblyInfo.cache
+C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\SchoolManagementSystem.API.sourcelink.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\AgileBiz\Bespoke\SchoolManagementSystemWebAPI\backend\SchoolManagementSystem.API\obj\Debug\net8.0\staticwebassets\msbuild.SchoolManagementSystem.API.Microsoft.AspNetCore.StaticWebAssets.props

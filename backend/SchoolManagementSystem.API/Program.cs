@@ -4,18 +4,38 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using SchoolManagementSystem.API.Data;
 using System.Text;
+using SchoolManagementSystem.API.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add DbContext
+// ✅ DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add Identity (optional — only if you're using ASP.NET Identity)
-builder.Services.AddIdentityCore<IdentityUser>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+// ✅ Identity with ApplicationUser
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
-// JWT Authentication Configuration
+// ✅ CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+// ✅ Controllers & JSON
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+
+// ✅ JWT Authentication — fixed to use Secret
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -23,7 +43,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    var jwtSettings = builder.Configuration.GetSection("Jwt");
+    var jwtSettings = builder.Configuration.GetSection("JWT");
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -33,14 +53,11 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(jwtSettings["Key"]))
+            Encoding.UTF8.GetBytes(jwtSettings["Secret"])) // ✅ now matches appsettings.json
     };
 });
 
-// Add Controllers
-builder.Services.AddControllers();
-
-// Swagger/OpenAPI support
+// ✅ Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -50,7 +67,6 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
-    // ✅ Add JWT Auth support
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -79,18 +95,108 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Swagger for development only
+// ✅ Seed Roles & Admin
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await SeedRoles(services);
+    await SeedAdminUser(services);
+}
+
+// ✅ Swagger
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    app.UseExceptionHandler("/error");
+    app.UseHsts();
+}
 
-// Middlewares
-app.UseHttpsRedirection();
-app.UseAuthentication(); // Add this before Authorization
+// ✅ CORS
+app.UseCors("AllowAll");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers(); // Enable routing for controllers
+app.MapControllers();
 
 app.Run();
+
+// ✅ Seed Roles
+async Task SeedRoles(IServiceProvider serviceProvider)
+{
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    Console.WriteLine("⏳ Seeding roles...");
+
+    string[] roleNames = { "Admin", "Teacher", "Student", "Parent" };
+
+    foreach (var roleName in roleNames)
+    {
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            var result = await roleManager.CreateAsync(new IdentityRole(roleName));
+            if (result.Succeeded)
+                Console.WriteLine($"✅ Created role: {roleName}");
+            else
+            {
+                Console.WriteLine($"❌ Failed to create role: {roleName}");
+                foreach (var error in result.Errors)
+                    Console.WriteLine($" - {error.Description}");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"ℹ️ Role already exists: {roleName}");
+        }
+    }
+
+    Console.WriteLine("✅ Finished seeding roles.");
+}
+
+// ✅ Seed Admin
+async Task SeedAdminUser(IServiceProvider serviceProvider)
+{
+    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    string adminUsername = "admin1";
+    string adminPassword = "Admin123!";
+    string adminEmail = "admin1@school.com";
+
+    var adminUser = await userManager.FindByNameAsync(adminUsername);
+
+    if (adminUser == null)
+    {
+        var newAdmin = new ApplicationUser
+        {
+            UserName = adminUsername,
+            Email = adminEmail,
+            FirstName = "System",
+            LastName = "Admin",
+            RegNo = "ADMIN001",
+            MustChangePassword = true // ✅ force change if needed
+        };
+
+        var createResult = await userManager.CreateAsync(newAdmin, adminPassword);
+        if (createResult.Succeeded)
+        {
+            await userManager.AddToRoleAsync(newAdmin, "Admin");
+            Console.WriteLine("✅ Default admin user created: admin1 / Admin123!");
+        }
+        else
+        {
+            Console.WriteLine("❌ Failed to create admin user:");
+            foreach (var error in createResult.Errors)
+                Console.WriteLine($" - {error.Description}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("ℹ️ Admin user already exists.");
+    }
+}
